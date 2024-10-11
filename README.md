@@ -8,4 +8,6 @@
 
 # Descripcion:
 
-# Nuestro trabajo se trata sobre, una base de datos de criaderos de perros con 2 tablas, criadero y perro estan se relacionan en razon que cada perro estaria vinculado a un criadero. Cada criadero tiene una unica raza de perro y los perros de determinada raza van a estar vinculados al mismo.
+# Nuestro trabajo se trata sobre una base de datos de criaderos de perros con 2 tablas, criadero y perro estan se relacionan en razon que cada perro estaria vinculado a un criadero. Cada criadero tiene una unica raza de perro y los perros de determinada raza van a estar vinculados al mismo.
+
+Agregar una breve explicación de cómo desplegar el sitio en un servidor con Apache y MySQL, como también cualquier información necesaria para su uso, como pueden ser usuarios y contraseñas de administrador. 

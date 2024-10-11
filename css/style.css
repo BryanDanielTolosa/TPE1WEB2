@@ -1,0 +1,40 @@
+body{
+    background-image: url(https://files.oaiusercontent.com/file-ZgWEipcca26SwC6i2pUzo4rs?se=2024-10-11T17%3A52%3A47Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D0557e12a-8bcc-4be5-8ca6-8072ab1e6371.webp&sig=Z6hZnUNqlyNQsTOVRZ71I7pLLUH1dxPRpNIwbS6J7hY%3D);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: green;
+}
+
+.titulos{
+    color: white;
+    border-color: black;
+    border-width: 20;
+}
+
+#nav{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+}
+
+.li{
+    text-decoration: none;
+    margin-left: 15;
+}
+
+#imagen_portada{
+    width: 100%;
+    height: 600;
+}
+
+
+/* foto boyeros de berna
+
+https://files.oaiusercontent.com/file-fpGwHyfKvQibaPHsm8g0V4r6?se=2024-10-11T23%3A39%3A10Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D658f2f89-a7d8-4f25-ad43-e59ed69593ba.webp&sig=GJ1jBnD5ueIfoaeST4D6BxI4oKqZeoH9vBSBhPhr6Zs%3D
+
+foto dalmatas
+
+https://files.oaiusercontent.com/file-jQNrgYexdJc7EmSe3sj7JEkq?se=2024-10-11T23%3A43%3A28Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D549f5853-0af3-41cf-a18b-c9ab76598183.webp&sig=gf0bTyszZMu02o6y5uY05TD0hOyi5GuNPhvIAMVVtWI%3D
+
+*/
