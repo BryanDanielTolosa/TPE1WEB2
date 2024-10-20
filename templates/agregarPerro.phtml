@@ -1,0 +1,18 @@
+<form action="agregarPerro" method="POST">
+                                <input type="text" class="form-control card-title mb-3" name="nombre" placeholder="nombre">
+                                <input type="date" class="form-control card-title mb-3" name="nacimiento" placeholder="nacimiento">
+                                <input type="text" class="form-control card-title mb-3" name="padre" placeholder="padre">
+                                <input type="text" class="form-control card-title mb-3" name="madre" placeholder="madre">
+                                <select class="form-select card-subtitle mb-3" aria-label="Default select example" name='sexo'>
+                                        <option value=""><-Seleccionar sexo-></option>
+                                        <option value="masculino">masculino</option>
+                                        <option value="femenino">femenino</option>
+                                </select>
+                                <select class="form-select card-subtitle mb-3" aria-label="Default select example" name='id_criadero'>
+                                        <option value=""><-Seleccionar criadero-></option>
+                                        <?php foreach ($criaderos as $criadero): ?>
+                                                <option value="<?= $criadero->id_criadero ?>"><?= $criadero->Nombre ?></option>
+                                        <?php endforeach; ?>
+                                </select>
+                                <button class="btn btn-success" type="submit">Agregar</button>
+                        </form>

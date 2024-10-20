@@ -1,0 +1,20 @@
+<form action="editarPerro/<?= $perro->id_perro ?>" method="POST">
+                                                <input type="text" class="form-control card-title mb-3" name="nombre" value='<?= $perro->nombre ?>'>
+                                                <input type="date" class="form-control card-title mb-3" name="nacimiento" value='<?= $perro->nacimiento ?>'>
+                                                <input type="text" class="form-control card-title mb-3" name="padre" value='<?= $perro->padre ?>'>
+                                                <input type="text" class="form-control card-title mb-3" name="madre" value='<?= $perro->madre ?>'>
+
+                                                <select class="form-select card-subtitle mb-3" aria-label="Default select example" name='sexo'>
+                                                        <option value="<?= $perro->sexo ?>"><?= $perro->sexo ?></option>
+                                                        <option value="masculino">masculino</option>
+                                                        <option value="femenino">femenino</option>
+                                                </select>
+                                                <select class="form-select card-subtitle mb-3" name="id_criadero">
+                                                        <option value='<?= $perro->id_criadero ?>'><?= $perro->Nombre ?></option>
+                                                        <?php foreach ($criaderos as $criadero): ?>
+                                                                <option value='<?= $criadero->id_criadero ?>'><?= $criadero->Nombre ?></option>
+                                                        <?php endforeach; ?>
+                                                </select>
+                                                <input type="hidden" name="id_perro" value='<?= $perro->id_perro ?>'>
+                                                <button class="btn btn-success " type="submit" id='<?= $perro->id_perro ?>'>Editar</button>
+                                        </form>

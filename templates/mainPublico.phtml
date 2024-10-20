@@ -1,0 +1,100 @@
+<main>
+    <div class="container">
+        <!-- Mostrar mensaje de éxito -->
+        <?php if (isset($_SESSION['mensaje_exito'])): ?>
+            <div class="alert alert-success">
+                <?= $_SESSION['mensaje_exito'] ?>
+            </div>
+            <?php unset($_SESSION['mensaje_exito']); // Limpiar el mensaje de la sesión ?>
+        <?php endif; ?>
+        <!-- Primera fila -->
+        <div class="row">
+            <!-- Primera columna -->
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <h4>Listado de Criaderos</h4>
+                    <!-- Botón para agregar criadero (solo para usuarios logueados) -->
+                    <?php if (isset($_SESSION["USER_ID"]) && !empty($_SESSION["USER_ID"])): ?>
+                        <a href="http://localhost/TPE2/AgregarCategoria">
+                            <li class="list-group-item btn btn-success btn-sm" type="button">Agregar Criadero</li>
+                        </a>
+                    <?php endif ?>
+                    <!-- Mostrar lista de criaderos -->
+                    <?php if (isset($criaderos) && !empty($criaderos)): ?>
+                        <?php foreach ($criaderos as $criadero): ?>
+                            <ul class="list-group">
+                                <div class="funciones d-flex justify-content-between align-items-center">
+                                    <!-- Imagen a la izquierda -->
+                                    <div class="imagen">
+                                        <img src="<?=$criadero->Imagen?>" alt="">
+                                        <a href="http://localhost/TPE2/listadoCategorias/<?=$criadero->id_criadero?>">
+                                            <p>Criadero "<?=$criadero->Nombre?>"</p>
+                                            <p>ID del criadero: <?=$criadero->id_criadero?></p>
+                                            <p>Raza: <?=$criadero->Raza?></p>
+                                            <p>Dirección: <?=$criadero->Direccion?></p>
+                                            <p>Localidad: <?=$criadero->Localidad?></p>
+                                        </a>
+                                        <a href="http://localhost/TPE2/listadoItemsPorCategoria/<?=$criadero->id_criadero?>">Listado de perros del criadero</a>
+                                    </div>
+                                    <!-- Botones a la derecha -->
+                                    <div class="listado">
+                                        <?php if (isset($_SESSION["USER_ID"]) && !empty($_SESSION["USER_ID"])): ?>
+                                            <a href="http://localhost/TPE2/FormularioEditarCategoria/<?=$criadero->id_criadero?>">
+                                                <li class="list-group-item btn btn-success btn-sm" type="button">Editar</li>
+                                            </a><br>
+                                            <a href="http://localhost/TPE2/EliminarCriadero/<?=$criadero->id_criadero?>">
+                                                <li class="list-group-item btn btn-success btn-sm" type="button">Eliminar</li>
+                                            </a><br>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
+                            </ul>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <p>No hay criaderos disponibles.</p>
+                    <?php endif ?>
+                </ul>
+            </div>
+            <!-- Segunda columna -->
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <h4>Listado de Perros</h4>
+                    <!-- Botón para agregar perros (solo para usuarios logueados) -->
+                    <?php if (isset($_SESSION["USER_ID"]) && !empty($_SESSION["USER_ID"])): ?>
+                        <a href="agregarForm">
+                            <li class="list-group-item btn btn-success btn-sm" type="button">Agregar Perros</li>
+                        </a>
+                    <?php endif ?>
+                    <!-- Mostrar lista de perros -->
+                    <?php if (isset($perros) && !empty($perros)): ?>
+                        <?php foreach ($perros as $perro): ?>
+                            <ul class="list-group">
+                                <div class="funciones d-flex justify-content-between align-items-center">
+                                    <!-- Imagen a la izquierda -->
+                                    <div class="imagen">
+                                        <img src="<?=$perro->Imagen?>" alt="">
+                                        <p>Nombre perro: <?=$perro->nombre?></p>
+                                        <a href="detalle/<?=$perro->id_perro?>" class="btn btn-danger btn-sm ml-auto">Detalle Completo</a>
+                                    </div>
+                                    <!-- Botones a la derecha -->
+                                    <div class="listado">
+                                        <?php if (isset($_SESSION["USER_ID"]) && !empty($_SESSION["USER_ID"])): ?>
+                                            <a href="editarForm/<?=$perro->id_perro?>">
+                                                <li class="list-group-item btn btn-success btn-sm" type="button">Editar</li>
+                                            </a><br>
+                                            <a href="http://localhost/TPE2/EliminarPerro/<?=$perro->id_perro?>">
+                                                <li class="list-group-item btn btn-success btn-sm" type="button">Eliminar</li>
+                                            </a><br>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
+                            </ul>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <p>No hay perros disponibles.</p>
+                    <?php endif ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>

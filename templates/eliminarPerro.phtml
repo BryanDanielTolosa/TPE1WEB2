@@ -1,0 +1,15 @@
+<main>
+<?php  foreach ($perros as $perro): ?>
+    <ul class="list-group">
+        
+            <li class="list-group-item" >
+                <img src="<?=$perro->Imagen?>" alt="" srcset="">
+                <a href="http://localhost/TPE2/EliminarPerro/<?=$perro->id_perro?>"><p>Eliminar "<?=$perro->Nombre?>"</p></a>
+                
+            </li>
+        
+    </ul>
+    <?php endforeach ?>
+</main>
+
+

@@ -1,0 +1,22 @@
+<?php require './templates/header.phtml'?>
+<?php  foreach ($criaderos as $criadero): ?>
+<form action="http://localhost/TPE2/EditarCriadero/<?=$criadero->id_criadero?>" method="POST">
+
+        <img src='<?=$criadero->Imagen?>' alt="" srcset=""><br>
+        <input type="text" name="imagen" value='<?=$criadero->Imagen?>' ><br>
+        
+        <label for="">Nombre criadero</label>
+        <input type="text" name="nombre" value='<?=$criadero->Nombre?>'><br>
+
+        <label for="">Direccion</label>
+        <input type="text" name="direccion" value='<?=$criadero->Direccion?>'><br>
+
+        <label for="">Localidad</label>
+        <input type="text" name="localidad" value='<?=$criadero->Localidad?>'><br>
+
+        <label for="">Raza</label>
+        <input type="text" name="raza" value='<?=$criadero->Raza?>'><br>
+
+        <input type="submit" value="Editar">
+</form>
+<?php endforeach ?>

@@ -1,0 +1,20 @@
+<main>
+<div class="container2">
+<?php  foreach ($criaderos as $criadero): ?>
+    
+    <ul class="list-group">
+        
+            <li class="list-group-item" >
+                <img src="<?=$criadero->Imagen?>" alt="" srcset="">
+                <a href="http://localhost/TPE2/listadoCategorias/<?=$criadero->id_criadero?>"><p>Criadero "<?=$criadero->Nombre?>"</p></a>
+                <p>Raza: <?=$criadero->Raza?></p>
+                <p>Dirección: <?=$criadero->Direccion?></p>
+                <p>Localidad: <?=$criadero->Localidad?></p>
+
+                <a href="http://localhost/TPE2/listadoItemsPorCategoria/<?=$criadero->id_criadero?>">Listado de perros del criadero</a>
+            </li>
+        
+    </ul>
+    <?php endforeach ?>
+    </div>
+</main>

@@ -1,0 +1,18 @@
+<?php require_once './templates/head.phtml'?>
+<main>
+
+<div class="container mt-5 d-flex justify-content-center">
+    <form method='POST' action='login' >
+        <div class="mb-2">
+            <input type="text" name="Usuario" class="form-control form-control-md" placeholder="Usuario">
+        </div>
+        <div class="mb-3">
+            <input type="contraseña" name="contraseña" class="form-control form-control-md" placeholder="Contraseña">
+        </div>
+        <button type="submit" class="btn btn-warning">Login</button>
+        <?php if ($error):?>
+            <div class="alert alert-danger"><?=$error?></div>
+        <?php endif?>
+    </form>
+</div>
+</main>

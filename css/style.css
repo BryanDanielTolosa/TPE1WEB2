@@ -1,0 +1,156 @@
+body{
+    background-color: beige;
+}
+
+header{
+    background: linear-gradient(black, green);
+    padding: 20px;
+    text-align: center;
+
+}
+
+header h1{
+    
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-size: 80px;
+    letter-spacing: 0.1em;
+    color:beige;
+    
+}
+.login{
+    display: flex;
+    direction: row;
+    align-items: center;
+}
+.container{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 50px;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.container3{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 50px;
+    vertical-align: middle;
+}
+
+.container2{
+    display: flex;
+    direction: row;
+    padding: 50px;
+    padding-bottom: 500px;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.mensaje{
+    text-align: center;
+    font-size: 20px;
+    color: red;
+    margin: 20px;
+    border: black;
+    border-style: double;
+}
+
+
+input[type="text"],
+input[type="password"] {
+    width: 500px; /* O puedes usar un valor fijo como 300px */
+    padding: 8px; /* Aumenta el espacio dentro del campo */
+    font-size: 18px; /* Aumenta el tamaño del texto */
+    margin-bottom: 10px; /* Espacio entre los campos */
+    border: 1px solid #ccc; /* Bordes suaves */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+
+
+.navbar-text{
+    list-style: none;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 30px;
+
+}
+
+.navbar-text:hover{
+background-color: gray;
+color: beige;
+padding-top: 5px;
+padding-bottom: 5px;
+margin-top: 0px;
+margin-bottom: 0px;
+
+
+}
+
+.funciones{
+    display: flex;
+    margin-top: 20px;
+}
+.acciones{
+    margin-left: 20px;
+}
+
+.listado{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;  
+}
+a{
+    text-decoration: none;
+
+}
+
+
+.list-group{
+    width: 100%;
+    align-items: center;
+}
+
+
+img{
+    width: 400px;
+    height: 300px;
+    justify-items: center;
+}
+
+p{
+background-color: black;
+color: beige;
+text-align: center;
+padding: 10px;
+
+
+}
+
+
+footer{
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: black;
+    color: gray;
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* foto boyeros de berna
+
+https://files.oaiusercontent.com/file-fpGwHyfKvQibaPHsm8g0V4r6?se=2024-10-11T23%3A39%3A10Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D658f2f89-a7d8-4f25-ad43-e59ed69593ba.webp&sig=GJ1jBnD5ueIfoaeST4D6BxI4oKqZeoH9vBSBhPhr6Zs%3D
+
+foto dalmatas
+
+https://files.oaiusercontent.com/file-jQNrgYexdJc7EmSe3sj7JEkq?se=2024-10-11T23%3A43%3A28Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D549f5853-0af3-41cf-a18b-c9ab76598183.webp&sig=gf0bTyszZMu02o6y5uY05TD0hOyi5GuNPhvIAMVVtWI%3D
+
+*/

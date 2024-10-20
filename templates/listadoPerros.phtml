@@ -1,0 +1,16 @@
+<main>
+    <div class="container2">
+
+            <ul class="list-group">
+            <?php  foreach ($Perros as $Perro): ?>
+                <li class="list-group-item" >
+                    <img src="<?=$Perro->Imagen?>" alt="" srcset="">
+
+                    <a href="http://localhost/TPE2/detalle/<?=$Perro->id_perro?>"><p>Nombre: <?=$Perro->nombre?></p></a>
+                    <a href="http://localhost/TPE2/detalle/<?=$Perro->id_perro?>">Detalle</a>               
+                </li>
+            <?php endforeach ?>
+        </ul>
+    
+    </div>
+</main>

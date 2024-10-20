@@ -1,0 +1,25 @@
+<main>
+<div class="container2">
+<?php  foreach ($items as $item): ?>
+    
+    <ul class="list-group">
+        
+            <li class="list-group-item" >
+                <img src="<?=$item->Imagen?>" alt="Boyero cachorro" srcset="">
+                
+                <p>Criadero "<?=$criadero[0]->Nombre?>"</p>
+                <p>Identificador: <?=$item->id_perro?></p>
+                <p>Nombre: <?=$item->nombre?></p>
+                <p>Sexo: <?=$item->sexo?></p>
+                <p>Fecha de nacimiento: <?=$item->nacimiento?></p>
+                <p>Nombre del padre: <?=$item->padre?></p>
+                <p>Nombre de la madre: <?=$item->madre?></p>
+
+                
+            </li>
+        
+    </ul>
+    <?php endforeach ?>
+    </div>
+</main>
+
