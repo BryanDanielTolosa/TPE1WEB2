@@ -60,7 +60,7 @@ class CriaderoModel{
         
 
         //Enviamos la consulta y obtenemos el resultado
-        $query = $this->db->prepare( 'SELECT * FROM perro WHERE id_criadero=?'); 
+        $query = $this->db->prepare( 'SELECT * FROM perro WHERE id_criadero_fk=?'); 
         $query->execute([$id]);
 
         //Obtengo todos los datos de la consulta
@@ -84,8 +84,7 @@ class CriaderoModel{
         
 
             $query = $this->db->prepare('UPDATE criadero 
-            SET Nombre = ?, Direccion = ?, Localidad = ?, Raza = ?, Imagen = ? 
-            WHERE id_criadero = ?');
+            SET Nombre = ?, Direccion = ?, Localidad = ?, Raza = ?, Imagen = ? WHERE id_criadero = ?');
             
         $query->execute([$nombre , $direccion, $localidad, $raza, $imagen, $idEntero]);
 
@@ -93,53 +92,25 @@ class CriaderoModel{
 
     }
 
-    function eliminarCriadero($idEntero){
-        $query = $this->db->prepare('DELETE FROM `criadero` WHERE `criadero`.`id_criadero` = ?');
-        $query->execute([$idEntero]);
-        
+    function eliminarCriadero($id){
+
+        $query=$this->db->prepare('DELETE FROM criadero WHERE id_criadero = ? ');
+            try{
+                $query->execute([$id]);
+            }
+            catch(PDOException $ex){
+                die('no se puede borrar este Criadero');
+            }
+    }
+
+    function eliminarPerrosCriadero($id){
+            $query=$this->db->prepare('DELETE FROM perro WHERE id_criadero_fk = ? ');
+            try{
+                $query->execute([$id]);
+            }
+            catch(PDOException $ex){
+                die('No se puede borrar este criadero');
+            }
     }
 }
-
-/*
-//crear db
-$db = new PDO('mysql:host=localhost;'
-.'dbname=criadero_de_perros;charset=utf8'
-, 'root', '');
-
-//ejecutar consulta
-$query = $db->prepare( "SELECT * FROM criadero");
-$query->execute();
-
-//obtener datos
-$criaderos = $query->fetchAll(PDO::FETCH_OBJ);
-		foreach($criaderos as $criadero) {
-			echo $criadero->nombre;
-		}
-// insertar
-
-$db->execute("INSERT INTO tarea(titulo)"."VALUES('".$tarea."')");
-$sentencia = $db->prepare(
-    "INSERT INTO tarea(titulo) VALUES(?)");
-    $sentencia->execute(array('Hacer la página de Web'));
-
-    
-    header("Location: /home"); 
-
-//borrar
-    $sentencia = $db->prepare( 
-        "delete from tarea where id=?");
-        
-        
-        $sentencia->execute([$id_tarea]);
-        
-
-        //actualizacion
-
-        $sentencia = $db->prepare(
-            "UPDATE tarea SET Finalizada=1
-             WHERE idTarea=?");
-            
-            $sentencia->execute([$id_tarea]);
-            
-*/
 ?>

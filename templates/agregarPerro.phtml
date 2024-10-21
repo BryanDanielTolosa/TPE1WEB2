@@ -1,14 +1,15 @@
 <form action="agregarPerro" method="POST">
-                                <input type="text" class="form-control card-title mb-3" name="nombre" placeholder="nombre">
-                                <input type="date" class="form-control card-title mb-3" name="nacimiento" placeholder="nacimiento">
-                                <input type="text" class="form-control card-title mb-3" name="padre" placeholder="padre">
-                                <input type="text" class="form-control card-title mb-3" name="madre" placeholder="madre">
-                                <select class="form-select card-subtitle mb-3" aria-label="Default select example" name='sexo'>
+                                <input type="text" placeholder="URL Imagen"  class="form-control card-title mb-3" name="imagen" required>
+                                <input type="text" class="form-control card-title mb-3" name="nombre" placeholder="nombre" required>
+                                <input type="date" class="form-control card-title mb-3" name="nacimiento" placeholder="nacimiento" required>
+                                <input type="text" class="form-control card-title mb-3" name="padre" placeholder="padre" required>
+                                <input type="text" class="form-control card-title mb-3" name="madre" placeholder="madre" required>
+                                <select class="form-select card-subtitle mb-3" aria-label="Default select example" name='sexo' required>
                                         <option value=""><-Seleccionar sexo-></option>
                                         <option value="masculino">masculino</option>
                                         <option value="femenino">femenino</option>
                                 </select>
-                                <select class="form-select card-subtitle mb-3" aria-label="Default select example" name='id_criadero'>
+                                <select class="form-select card-subtitle mb-3" aria-label="Default select example" name='id_criadero' required>
                                         <option value=""><-Seleccionar criadero-></option>
                                         <?php foreach ($criaderos as $criadero): ?>
                                                 <option value="<?= $criadero->id_criadero ?>"><?= $criadero->Nombre ?></option>

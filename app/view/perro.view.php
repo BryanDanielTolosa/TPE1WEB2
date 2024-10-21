@@ -3,7 +3,11 @@
 class MuestraPerros
 {
 
-    
+    function ListPerro($perros){
+        require_once './templates/header.phtml';
+        require_once './templates/main.phtml';
+        require_once './templates/footer.phtml';
+    }
 
 
     function DetalleItem($perros)
@@ -12,11 +16,7 @@ class MuestraPerros
         require_once './templates/detallePerro.phtml';
         require_once './templates/footer.phtml';
     }
-    function perroNoExiste($error = "")
-    {
-        require './templates/error.phtml';
-        
-    }
+    
 
     
 

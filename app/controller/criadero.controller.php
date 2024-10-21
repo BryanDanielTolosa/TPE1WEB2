@@ -53,8 +53,10 @@ class CriaderoController {
     }
 
     function listarItemsPorCategoria($id){
-        $items= $this->model->listarItemsPorCategoria($id);
-        $this->view->listarItemsPorCategoria($items, $id);
+        $idComoString = $id;
+        $idEntero = (int) $idComoString;
+        $items= $this->model->listarItemsPorCategoria($idEntero);
+        $this->view->listarItemsPorCategoria($items, $idEntero);
 
     }
 
@@ -78,13 +80,11 @@ class CriaderoController {
             $perros = $this->perroModel->getPerros();
             $criaderos = $this->model->listarCategorias();
             $this->model->agregarCriadero($nombre , $direccion, $localidad, $raza, $imagen);
-            $this->view->criaderoAgregado($criaderos,$perros);
-        
+            
+            $_SESSION['mensaje_exito'] = "Criadero agregado exitosamente.";
+            header("Location: ". BASE_URL);
+            die();
         }
-    }
-
-    function editarCategoria(){
-        $this->view->editarCategoria();
     }
     function formEditarCriadero($id){
         $idComoString = $id;
@@ -94,9 +94,7 @@ class CriaderoController {
     }
 
     function editarCriadero($id){
-var_dump($id);
-$idComoString = $id;
-$idEntero = (int) $idComoString;
+        $id = (int) $id;
 
         //validacion de datos
         if(!empty($_POST['nombre']) && !empty($_POST['direccion']) && !empty($_POST['localidad']) && !empty($_POST['raza']) && !empty($_POST['imagen'])){
@@ -106,28 +104,27 @@ $idEntero = (int) $idComoString;
             $raza = $_POST['raza'];
             $imagen = $_POST['imagen'];
 
-            $perros = $this->perroModel->getPerros();
-        $criaderos = $this->model->listarCategorias();
-            $this->view->criaderoEditado($criaderos, $perros);
-        $this->model->editarCriadero($nombre, $direccion, $localidad, $raza, $imagen, $idEntero);
+        $this->model->editarCriadero($nombre, $direccion, $localidad, $raza, $imagen, $id);
         
-        } else {
-            echo "entro en el else";
-        }
+        // Establecer mensaje de éxito en la sesión
+        $_SESSION['mensaje_exito'] = "Criadero editado exitosamente.";
+        
+        // Redirigir a la lista de criaderos después de editar
+        header("Location: " . BASE_URL);
+        die();
+    }
+    }
+    public function eliminarCriadero($id){
+        $this->eliminarPerrosCriadero($id);
+        
+        $this->model->eliminarCriadero($id);
+        $_SESSION['mensaje_exito'] = "Criadero eliminado exitosamente.";
+        header("Location: ". BASE_URL);
+        die();
     }
 
-    function listarCategoriasEliminar(){
-        $criaderos= $this->model->listarCategorias();
-        $this->view->eliminarCategoria($criaderos);
-    }
-
-    function eliminarCriadero($id){
-        $idComoString = $id;
-        $idEntero = (int) $idComoString;
-        $this->model->eliminarCriadero($idEntero);
-        $criaderos= $this->model->listarCategorias();
-        $this->view->eliminarCriadero($idEntero, $criaderos);
-
+    function eliminarPerrosCriadero($id){
+        $this->model->eliminarPerrosCriadero($id);
     }
 }
 ?>

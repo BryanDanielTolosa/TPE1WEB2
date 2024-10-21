@@ -7,14 +7,14 @@ class CriaderoView{
 
     function mostrarHome($perros, $criaderos){
         require './templates/header.phtml';
-        require './templates/mainPublico.phtml';
+        require './templates/main.phtml';
         require './templates/footer.phtml';
     }
     
     public function listarCategorias($criaderos){
         
         require_once './templates/header.phtml';
-        require_once './templates/mainPublico.phtml';
+        require_once './templates/main.phtml';
         require_once './templates/footer.phtml';
         
     }
@@ -40,16 +40,8 @@ class CriaderoView{
 
     function formularioAgregarCategoria(){
         require './templates/header.phtml';
-        require './templates/agregarCriadero.php';
+        require './templates/agregarCriadero.phtml';
         require_once './templates/footer.phtml';
-    }
-
-    function criaderoAgregado($criaderos, $perros){
-        require "./templates/header.phtml";
-        echo "<h4 class='mensaje'>El criadero fue agregado</h4>";
-        require "./templates/mainPublico.phtml";
-        require "./templates/footer.phtml";
-        
     }
 
     function editarCategoria($criaderos){
@@ -59,30 +51,14 @@ class CriaderoView{
     }
 
     function formEditarCriadero($criaderos){
-     
+    
         require_once './templates/formEditarCriadero.phtml';
         require_once './templates/footer.phtml';
     }
 
-    function criaderoEditado($criaderos, $perros){
-        require_once './templates/header.phtml';
-        echo "<h4 class='mensaje'>El criadero fue editado</h4>";
-        require_once './templates/mainPublico.phtml';
-        require_once './templates/footer.phtml';
-    }
+    
 
-    function eliminarCategoria($criaderos){
-        require_once './templates/header.phtml';
-        require_once './templates/eliminarCriadero.phtml';
-        require_once './templates/footer.phtml';
-    }
-
-    function eliminarCriadero($idEntero, $criaderos){
-        require_once './templates/header.phtml';
-        echo"<h4 class='mensaje'>El criadero con el numero de ID $idEntero fue eliminado</h4>";
-        require_once './templates/mainPublico.phtml';
-        require_once './templates/footer.phtml';
-    }
+    
 
     
 }

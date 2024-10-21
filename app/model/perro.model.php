@@ -28,20 +28,20 @@ class ModeloPerro{
 }
     // Obtengo perro()
     function getPerros(){
-        $query = $this->db->prepare('SELECT a.*, b.* FROM perro a INNER JOIN criadero b ON a. id_criadero_fk = b. id_criadero');
+        $query = $this->db->prepare('SELECT * FROM perro');
         $query->execute();
         $perros= $query->fetchAll(PDO::FETCH_OBJ);
 
-return $perros;
+    return $perros;
     }
     function getPerro($id){
-        $query=$this->db->prepare("SELECT a.*, b.* FROM perro a INNER JOIN criadero b ON a. id_criadero_fk = b. id_criadero WHERE id_perro = ? ");
+        $query=$this->db->prepare('SELECT * FROM perro WHERE id_perro = ?');
             $query->execute([$id]);
             return $query->fetch(PDO::FETCH_OBJ);
     }
     function eliminarPerro($id){
 
-        $query=$this->db->prepare("DELETE FROM perro WHERE id_perro = ?  ");
+        $query=$this->db->prepare('DELETE FROM perro WHERE id_perro = ? ');
             try{
                 $query->execute([$id]);
             }
@@ -49,14 +49,14 @@ return $perros;
                 die('no se puede borrar este perro');
             }
     }
-    function insentarPerro($nombre, $nacimiento, $padre, $sexo, $madre, $id_criadero){
-        $query=$this->db->prepare('INSERT INTO perro(nombre, nacimiento, padre, sexo, madre, id_criadero_fk) VALUES (?,?,?,?,?,?)');
-        $query->execute([$nombre, $nacimiento, $padre, $sexo, $madre, $id_criadero]);
+    function insentarPerro($nombre, $nacimiento, $padre, $sexo, $madre, $id_criadero, $imagen){
+        $query=$this->db->prepare('INSERT INTO perro(nombre, nacimiento, padre, sexo, madre, id_criadero_fk, Imagen) VALUES (?,?,?,?,?,?,?)');
+        $query->execute([$nombre, $nacimiento, $padre, $sexo, $madre, $id_criadero, $imagen]);
         
     }
-    public function editarPerro($nombre, $nacimiento, $padre, $sexo, $madre, $id_perro) {
-        $query = $this->db->prepare("UPDATE perro SET nombre = ?, nacimiento = ?, padre = ?, sexo = ?, madre = ? WHERE id_perro = ?");
-        $query->execute([$nombre, $nacimiento, $padre, $sexo, $madre, $id_perro]);
+    public function editarPerro($nombre, $nacimiento, $padre, $sexo, $madre, $id_perro, $imagen) {
+        $query = $this->db->prepare("UPDATE perro SET nombre = ?, nacimiento = ?, padre = ?, sexo = ?, madre = ?, Imagen = ? WHERE id_perro = ?");
+        $query->execute([$nombre, $nacimiento, $padre, $sexo, $madre, $id_perro, $imagen]);
     }
     }
 ?>
